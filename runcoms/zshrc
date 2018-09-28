@@ -13,7 +13,12 @@ fi
 # Customize to your needs...
 alias gl="git log --graph --decorate --pretty=format:'%Cred%h%Creset - %Cgreen(%cr)%Creset %s - %C(blue)%an%Creset %C(yellow)%d%Creset' --abbrev-commit --all"
 alias top="htop"
+alias vim="nvim"
 
-if [ -f ~/.zsh.host ]; then
-  source ~/.zsh.host
+mkc () {
+	mkdir -p "$@" && cd "$@"
+}
+
+if [ -f ~/.zsh_host ]; then
+  source ~/.zsh_host
 fi
