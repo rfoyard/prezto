@@ -35,6 +35,10 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
+  'history-substring-search' \
+  'syntax-highlighting' \
+  'git' \
+  'tmux' \
   'prompt'
 
 #
@@ -57,7 +61,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
@@ -70,7 +74,16 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 #
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+ zstyle ':prezto:module:git:status:ignore' submodules 'all'
+ zstyle ':prezto:module:git:log:context' format '%Cred%h%Creset - %Cgreen(%cr)%Creset %s - %C(blue)%an%Creset %C(yellow)%d%Creset'
+ zstyle ':prezto:module:git:info:branch' format '%F{green}%b%f'
+ zstyle ':prezto:module:git:info:clean' format ' %F{green}✔%f'
+ zstyle ':prezto:module:git:info:dirty' format ' %F{red}✗%f'
+ zstyle ':prezto:module:git:info:commit' format '➦ %.7c'
+ zstyle ':prezto:module:git:info:keys' format \
+   'prompt' ' %F{green}(%f$(coalesce "%b" "%p" "%c")${git_info[rprompt]}%s%F{green})%f' \
+   'rprompt' '%C%D'
+
 
 #
 # GNU Utility
@@ -113,7 +126,8 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'sorin'
+# zstyle ':prezto:module:prompt' theme 'sorin'
+zstyle ':prezto:module:prompt' theme 'cloud' 'rio ➜' 'yellow' 'red'
 
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
