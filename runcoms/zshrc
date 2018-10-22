@@ -11,11 +11,14 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+setopt no_share_history
+
 alias gl="git log --graph --decorate --pretty=format:'%Cred%h%Creset - %Cgreen(%cr)%Creset %s - %C(blue)%an%Creset %C(yellow)%d%Creset' --abbrev-commit --all"
 alias top="htop"
 alias vim="nvim"
 export EDITOR="nvim"
 export GIT_EDITOR=$EDITOR
+export FZF_DEFAULT_COMMAND='ag -g ""'
 
 mkc () {
 	mkdir -p "$@" && cd "$@"
